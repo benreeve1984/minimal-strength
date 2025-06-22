@@ -1,4 +1,4 @@
-name: Deploy to Vercel
+name: CI - Build and Test
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  build-and-deploy:
+  build-and-test:
     runs-on: ubuntu-latest
     
     steps:
@@ -29,19 +29,5 @@ jobs:
     - name: Build application
       run: npm run build
       
-    - name: Deploy to Vercel (Production)
-      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-      uses: amondnet/vercel-action@v25
-      with:
-        vercel-token: ${{ secrets.VERCEL_TOKEN }}
-        vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-        vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-        vercel-args: '--prod'
-        
-    - name: Deploy to Vercel (Preview)
-      if: github.event_name == 'pull_request'
-      uses: amondnet/vercel-action@v25
-      with:
-        vercel-token: ${{ secrets.VERCEL_TOKEN }}
-        vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-        vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }} 
+    - name: Build completed successfully
+      run: echo "✅ Build completed successfully! Vercel will handle deployment via GitHub integration." 

@@ -59,18 +59,22 @@ npm start
 
 This app is optimized for Vercel deployment:
 
-1. Push your code to GitHub
-2. Connect your repository to Vercel
-3. Set up the required environment variables (see CI/CD section)
-4. Deploy automatically on push to main branch
+1. **Push your code to GitHub**
+2. **Go to [vercel.com](https://vercel.com) and sign in**
+3. **Click "New Project"**
+4. **Import your GitHub repository**
+5. **Deploy** - Vercel will automatically detect it's a Next.js app
+6. **Automatic deployments** - Future pushes to `main` will auto-deploy
 
-### CI/CD Setup
+### GitHub Actions CI
 
-For automated deployment via GitHub Actions, add these secrets to your repository:
+The repository includes a CI workflow that:
+- ✅ Runs on every push and pull request
+- ✅ Installs dependencies and runs linter
+- ✅ Builds the application to catch errors
+- ✅ No deployment (Vercel handles that natively)
 
-- `VERCEL_TOKEN`: Your Vercel authentication token
-- `VERCEL_ORG_ID`: Your Vercel organization ID  
-- `VERCEL_PROJECT_ID`: Your Vercel project ID
+No additional setup required - just push to GitHub!
 
 ## Technology Stack
 
