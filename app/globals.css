@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles for mobile optimization */
+@layer base {
+  html {
+    /* Prevent horizontal scrolling */
+    overflow-x: hidden;
+    /* Support for iPhone safe areas */
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  }
+
+  body {
+    /* Prevent rubber band scrolling on iOS */
+    overscroll-behavior: none;
+    /* Smooth font rendering */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Prevent text size adjust on orientation change */
+    -webkit-text-size-adjust: 100%;
+  }
+
+  /* Disable text selection for app-like feel */
+  * {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  /* Allow text selection for inputs */
+  input, textarea {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+  }
+
+  /* Remove default button styles */
+  button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    background: transparent;
+  }
+
+  /* Custom scrollbar for webkit browsers */
+  ::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+  }
+}
+
+/* Custom component styles */
+@layer components {
+  /* Primary button styling */
+  .btn-primary {
+    @apply bg-primary text-white font-semibold py-4 px-6 rounded-xl shadow-lg active:scale-95 transition-all duration-150 ease-out;
+  }
+
+  /* Secondary button styling */
+  .btn-secondary {
+    @apply bg-surface border border-text-secondary text-text-primary font-semibold py-4 px-6 rounded-xl active:scale-95 transition-all duration-150 ease-out;
+  }
+
+  /* Success button styling */
+  .btn-success {
+    @apply bg-success text-white font-semibold py-4 px-6 rounded-xl shadow-lg active:scale-95 transition-all duration-150 ease-out;
+  }
+
+  /* Card styling */
+  .card {
+    @apply bg-surface rounded-xl p-4 shadow-lg;
+  }
+
+  /* Timer display styling */
+  .timer-display {
+    @apply text-6xl font-bold text-primary text-center tracking-wider;
+  }
+
+  /* Set counter styling */
+  .set-counter {
+    @apply text-2xl font-bold text-text-primary;
+  }
+
+  /* Exercise title styling */
+  .exercise-title {
+    @apply text-xl font-semibold text-text-primary mb-2;
+  }
+}
+
+/* Animations for visual feedback */
+@layer utilities {
+  /* Pulse animation for active timer */
+  .animate-timer-pulse {
+    animation: timer-pulse 1s ease-in-out infinite;
+  }
+
+  @keyframes timer-pulse {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.05);
+      opacity: 0.8;
+    }
+  }
+
+  /* Bounce animation for completed sets */
+  .animate-bounce-in {
+    animation: bounce-in 0.5s ease-out;
+  }
+
+  @keyframes bounce-in {
+    0% {
+      transform: scale(0.8);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+} 

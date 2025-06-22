@@ -1,0 +1,9 @@
+<!-- This is a placeholder - in production you'd want a proper PNG icon -->
+<!-- For now, we'll create a simple SVG that browsers can display -->
+<svg width="192" height="192" viewBox="0 0 192 192" xmlns="http://www.w3.org/2000/svg">
+  <rect width="192" height="192" fill="#007AFF" rx="32"/>
+  <circle cx="96" cy="70" r="20" fill="white" stroke="none"/>
+  <rect x="86" y="90" width="20" height="60" fill="white" rx="10"/>
+  <rect x="70" y="120" width="52" height="12" fill="white" rx="6"/>
+  <text x="96" y="170" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="16" font-weight="bold">MS</text>
+</svg> 
