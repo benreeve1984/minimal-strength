@@ -37,7 +37,7 @@ export default function WorkoutPage() {
   // Initialize workout data on component mount
   useEffect(() => {
     loadWorkoutData()
-  }, [])
+  }, []) // loadWorkoutData is stable - no need to add as dependency
 
   // Timer countdown effect
   useEffect(() => {
@@ -268,18 +268,7 @@ export default function WorkoutPage() {
     setWorkoutComplete(allCompleted)
   }
 
-  // Skip progression and start new workout with same reps
-  const skipProgression = () => {
-    const resetExercises = exercises.map(exercise => ({
-      ...exercise,
-      currentSet: 0,
-      completed: false
-    }))
-    
-    setExercises(resetExercises)
-    saveWorkoutData(resetExercises)
-    setWorkoutComplete(false)
-  }
+
 
   // Reset workout to current progression level (not back to 1-1-1-1-1)
   const resetWorkout = () => {
@@ -406,7 +395,7 @@ export default function WorkoutPage() {
                 </button>
               </div>
               <p className="text-xs text-text-secondary mt-2">
-                "Reset Current Workout" keeps your progression. "Start Over" goes back to 1 rep per set.
+                &ldquo;Reset Current Workout&rdquo; keeps your progression. &ldquo;Start Over&rdquo; goes back to 1 rep per set.
               </p>
             </div>
           </div>

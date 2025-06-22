@@ -6,10 +6,7 @@ const nextConfig = {
   // Optimize for static export to work well with Vercel
   trailingSlash: false,
   
-  // Enable PWA features
-  experimental: {
-    appDir: true,
-  },
+  // PWA features are enabled by default in Next.js 14
   
   // Headers for better mobile experience
   async headers() {
